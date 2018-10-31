@@ -1,0 +1,72 @@
+import java.util.*; 
+import java.io.*;
+
+class Main {  
+  public static String LetterChanges(String str) { 
+  
+    StringBuilder res1 = new StringBuilder(str);
+    
+    for(int i = 0; i < str.length(); i++) {
+        
+        char charac = str.charAt(i);
+        int ascii = (int) charac;
+        
+        if((ascii >= 97) && (ascii <=121) ||
+        (ascii >= 65) && (ascii <= 89)) {
+            int newAscii = ascii + 1;
+            char newChar = (char) newAscii;
+            res1.setCharAt(i, newChar);
+        }
+        
+    
+        if(ascii == 122) {
+            int z2a_ascii = 97;
+            char newA = (char) z2a_ascii;
+            res1.setCharAt(i, newA);
+        }
+        
+        
+        if(ascii == 90) {
+            int z2a_ascii = 65;
+            char newA = (char) z2a_ascii;
+            res1.setCharAt(i, newA);
+        }
+    }
+    
+    str = res1.toString();
+    
+    if(str.matches(".*[aeiou].*")) {
+        
+        StringBuilder res2 = new StringBuilder(str);
+        for(int i = 0; i < str.length(); i++)  {
+            
+            char vowel = str.charAt(i);
+            switch(vowel) {
+                    case 'a' :
+                    case 'e' :
+                    case 'i' :
+                    case 'o' :
+                    case 'u' :
+                
+                    res2.setCharAt(i, Character.toUpperCase(vowel));
+                    break;
+        
+                 }
+            }
+            
+        str = res2.toString();
+    }
+    
+    
+       
+    return str;
+    
+  } 
+  
+  public static void main (String[] args) {  
+    // keep this function call here     
+    Scanner s = new Scanner(System.in);
+    System.out.print(LetterChanges(s.nextLine())); 
+  }   
+  
+}

@@ -1,0 +1,54 @@
+import java.util.*; 
+import java.io.*;
+
+class Main {  
+    
+    
+    static int count = 0; // count starts at 0
+    static int magic = 6174;
+
+  public static int KaprekarsConstant(int num) {
+    
+    if (num != magic) {
+        while (num < 1000) {
+        num *= 10; //check if num < 1000, then change to 4-digit by adding 0
+        }
+    
+        String numstr = Integer.toString(num); //convert int to string
+        Integer[] arint = new Integer[4];  //initialize an int[] array of 4 digits
+    
+        for (int i = 0; i < numstr.length(); i++) {  //loop thru the string length
+        arint[i] = numstr.charAt(i) - '0'; //subtract ascii val of char '0' == 48 to convert to int val of charAt(i)
+        }                                       // convert int vals calc from string to put them as digits in int[] array
+    
+        Arrays.sort(arint); //sorted ascending order of int-array of digits
+    
+        String sorted_a = "";  //initialize string for asc
+        for(int i=0; i < arint.length; i++) {sorted_a += arint[i]; } //convert array to String for sorted_a
+        int intA = Integer.parseInt(sorted_a);  // convert String to int
+    
+        Arrays.sort(arint, Collections.reverseOrder());    //descending
+    
+        String sorted_d = "";  //initialize strong for desc
+        for(int i = 0; i < arint.length; i++) {sorted_d += arint[i]; } //convert array -> String 
+        int intD = Integer.parseInt(sorted_d); //convert to int
+    
+        int store = intD - intA; // difference 
+        count++; // keep count of the diff
+        KaprekarsConstant(store);
+    
+        }
+        return count;
+      } 
+      
+      
+  
+  public static void main (String[] args) {  
+      
+      
+    // keep this function call here     
+    Scanner s = new Scanner(System.in);
+    System.out.print(KaprekarsConstant(s.nextLine())); 
+  }   
+  
+}

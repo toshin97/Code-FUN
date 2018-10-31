@@ -1,0 +1,43 @@
+import java.util.*; 
+import java.io.*;
+
+class Main {  
+  public static String TimeConvert(int num) { 
+  
+    int diff = num - 60;
+    int min = 0;
+    int count = 1; // count starts at 1 because diff already subtracted 60mins and found it 
+    //to be greater than 60, so goes into while loop to count more hours
+    int hr = 0;
+    
+    if (diff > 0 && diff < 60) {
+        hr = 1;
+        min = diff;
+        }
+    
+    else if (diff < 0) {min = num;}
+    
+    else {
+    while (diff >= 60) {
+         count++;
+         diff -= 60;
+     }
+     
+    hr = count;
+     min = diff;
+    }
+    
+    String hour = Integer.toString(hr);
+    String minutes = Integer.toString(min);
+   
+    String str = hour+":"+minutes;   
+    return str;
+    
+  } 
+   
+   public static void main (String[] args) {  
+    // keep this function call here     
+    Scanner s = new Scanner(System.in);
+    System.out.print(TimeConvert(s.nextLine())); 
+  }   
+ }

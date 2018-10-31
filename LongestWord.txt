@@ -1,0 +1,51 @@
+import java.util.*; 
+import java.io.*;
+
+class Main {  
+  public static String LongestWord(String sen) { 
+  
+    
+    String[] arr = sen.split(" ");
+    int maxB = 0;
+    int max = 0;
+    
+    String longest = arr[0];
+    
+    for (int i=0; i < arr.length; i++) {
+        
+        for(int j = 0; j < arr[i].length(); j++) {
+        int ascii = (int) arr[i].charAt(j);
+            if((ascii >= 97) && (ascii <=121) || (ascii >= 65) && (ascii <= 89)) {
+                max++;
+          }
+          
+        }
+        if (max > maxB) {
+        maxB = max;
+        longest = arr[i];
+        }
+        max = 0;
+    
+    }
+    
+      
+    return longest;
+    
+  } 
+  
+  public static void main (String[] args) {  
+    // keep this function call here     
+    Scanner s = new Scanner(System.in);
+    System.out.print(LongestWord(s.nextLine())); 
+  }   
+  
+}
+
+
+
+
+
+
+
+
+  

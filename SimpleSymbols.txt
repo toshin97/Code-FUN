@@ -1,0 +1,46 @@
+import java.util.*; 
+import java.io.*;
+
+class Main {  
+  public static String SimpleSymbols(String str) { 
+  
+  //StringBuilder str = new StringBuilder(str);
+   String result = "";
+   for (int i=0; i < str.length(); i++) {
+       
+       int first = (int) str.charAt(0);
+       if ((first >= 97) && (first <= 122)) {result = "false";}
+       
+       int ascii = (int) str.charAt(i);
+       
+       if(i>0) {
+        if((ascii >= 97) && (ascii <= 122)) {
+           if((str.charAt(i-1) == '+') && (str.charAt(i+1) == '+')) {
+               result = "true";
+           }
+           else {result = "false";}
+       }
+       
+      }
+   }
+   
+    
+   return result; 
+  } 
+  
+  public static void main (String[] args) {  
+    // keep this function call here     
+    Scanner s = new Scanner(System.in);
+    System.out.print(SimpleSymbols(s.nextLine())); 
+  }   
+  
+}
+
+
+
+
+
+
+
+
+  

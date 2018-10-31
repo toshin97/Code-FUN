@@ -1,0 +1,36 @@
+import java.util.*; 
+import java.io.*;
+
+public class Main {  
+  public static String LetterCapitalize(String str) { 
+    
+    StringBuilder strArr = new StringBuilder(str);
+    
+    for(int i = 0; i < str.length(); i++) {
+        
+        char first = str.charAt(0);
+        char firstCap = Character.toUpperCase(first);
+        strArr.setCharAt(0,firstCap);
+        
+        
+        if (str.charAt(i) == ' ') {
+            char letter = str.charAt(i+1);
+            char bigLet = Character.toUpperCase(letter);
+            strArr.setCharAt(i+1, bigLet);
+        }
+       
+    }
+    
+    String changed = strArr.toString();
+    
+    return changed;
+    }
+  
+ 
+  public static void main (String[] args) {  
+    // keep this function call here     
+    Scanner s = new Scanner(System.in);
+    System.out.print(LetterCapitalize(s.nextLine())); 
+  }   
+  
+}
