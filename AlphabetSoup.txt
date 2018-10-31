@@ -1,0 +1,21 @@
+import java.util.*; 
+import java.io.*;
+
+class Main {  
+  public static String AlphabetSoup(String str) { 
+     
+    char[] carr = str.toCharArray();
+    Arrays.sort(carr);  
+    
+    //String done = Arrays.toString(carr);
+    String sorted = new String(carr);
+    return sorted;
+  } 
+  
+  public static void main (String[] args) {  
+    // keep this function call here     
+    Scanner s = new Scanner(System.in);
+    System.out.print(AlphabetSoup(s.nextLine())); 
+  }   
+  
+}
