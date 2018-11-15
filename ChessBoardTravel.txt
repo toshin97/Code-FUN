@@ -1,0 +1,35 @@
+import java.util.*; 
+import java.io.*;
+
+class Main {  
+  public static long ChessboardTraveling(String str) { 
+
+    long first = Long.parseLong(str.substring(1, 2));
+    long second = Long.parseLong(str.substring(3, 4));
+    long third = Long.parseLong(str.substring(6, 7));
+    long fourth = Long.parseLong(str.substring(8, 9));
+
+    long n = (third - first) + (fourth - second);
+    long k = fourth - second;
+    long combinations = factorial(n) / (factorial(k) * factorial(n-k));
+    
+    return combinations;
+    }
+       
+    public static long factorial(long f) {
+      long fact = 1;
+
+      for (long i = 1; i <= f; i++) {
+        fact *= i;
+      }
+      return fact;
+    }
+    
+    
+  public static void main (String[] args) {  
+    // keep this function call here     
+    Scanner s = new Scanner(System.in);
+    System.out.print(ChessboardTraveling(s.nextLine())); 
+  }   
+  
+}
